@@ -1,16 +1,21 @@
-import '@/assets/styles/global.css'
+import "@/assets/styles/global.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import AuthProvider from "@/components/AuthProvider";
 type Props = {
-    children: any;
-}
+  children: any;
+};
 
-export default function layout({children}: Props) {
+export default function layout({ children }: Props) {
   return (
-    <html>
+    <AuthProvider>
+      <html>
         <body>
-            <main>
-                {children}
-            </main>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
         </body>
-    </html>
-  )
+      </html>
+    </AuthProvider>
+  );
 }
